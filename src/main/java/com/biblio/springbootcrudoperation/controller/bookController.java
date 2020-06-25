@@ -18,7 +18,8 @@ import java.io.IOException;
 import java.util.List;
 import javax.validation.Valid;
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/api/book")
+@CrossOrigin("http://localhost:4200")
 public class bookController {
 	@Autowired
 	bookRepository bookRepository;
@@ -30,7 +31,7 @@ public class bookController {
 	
 		//List all books 
 		@GetMapping("/all")
-		@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 		public List<eBook> findAllBooks() {
 			return bookRepository.findAll();
 				}
