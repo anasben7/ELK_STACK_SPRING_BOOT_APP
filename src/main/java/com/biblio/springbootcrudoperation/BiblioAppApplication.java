@@ -29,9 +29,9 @@ public class BiblioAppApplication {
 	@Scheduled(fixedDelayString="PT5M")
 	void logstach() throws InterruptedException, IOException{
 		// Unix
-		Process proc = rt.exec("/Users/pro/Downloads/logstash-7.8.0/bin/logstash -f /Users/pro/Documents/books.conf");
+		//Process proc = rt.exec("C:\\Users\\KhalidCH\\Desktop\\logstash-7.8.0\\bin\\logstach -f C:\\Users\\KhalidCH\\Desktop\\sync");
 		//Windows
-		// Process proc = rt.exec("cmd /c start C:/Users/Path/to/logstach.bat -f /path/to/books.conf");
+		Process proc = rt.exec("cmd /c start C:\\Users\\KhalidCH\\Desktop\\logstash-7.8.0\\bin\\logstash.bat -f C:\\Users\\KhalidCH\\Desktop\\sync\\books.conf");
 		
 		
 	}
