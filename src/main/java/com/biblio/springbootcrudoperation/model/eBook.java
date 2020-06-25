@@ -28,6 +28,11 @@ public class eBook implements Serializable {
     private String year;
     private String authorname;
     private String category;
+    private String img;
+    private String pdf;
+
+ 
+   
     
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -38,6 +43,10 @@ public class eBook implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private Date updatedAt;
+    
+    
+    
+    
     
     
     // Getters and Setters
@@ -121,6 +130,18 @@ public class eBook implements Serializable {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
+	
+
 
 
 	

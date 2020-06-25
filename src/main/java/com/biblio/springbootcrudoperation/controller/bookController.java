@@ -7,15 +7,24 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.http.HttpStatus;
 import com.biblio.springbootcrudoperation.elasticRepository.bookRepoElastic;
 import com.biblio.springbootcrudoperation.exception.ResourceNotFoundException;
 import com.biblio.springbootcrudoperation.model.bookElas;
 import com.biblio.springbootcrudoperation.model.eBook;
+import com.biblio.springbootcrudoperation.payload.MessageResponse;
 import com.biblio.springbootcrudoperation.repository.bookRepository;
+
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import java.io.IOException;
 import java.util.List;
+import java.util.zip.DataFormatException;
+import java.util.zip.Deflater;
+import java.util.zip.Inflater;
+import java.io.ByteArrayOutputStream;
 import javax.validation.Valid;
 @RestController
 @RequestMapping("/book")
@@ -26,6 +35,7 @@ public class bookController {
 	bookRepoElastic bookRepoElastic;
 	@Autowired
 	ElasticsearchTemplate template;
+
 	Runtime rt = Runtime.getRuntime();
 	
 		//List all books 
@@ -41,9 +51,10 @@ public class bookController {
 		@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 		public eBook saveUser(@RequestBody eBook ebook) {
 			return bookRepository.save(ebook);
-					
-				}	
-	
+							
+						}	
+				
+				
 		//Get book by title
 		@GetMapping("/search/{title}")
 		@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
