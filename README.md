@@ -11,3 +11,9 @@ The main objective of this project is to set up a library management application
 - This is a Library management application developed using Spring Boot / Angular.
 - Integration of ELK Stack, to optimize searches on the application.
 - Technlogies used: ELK (Elasticsearch, Logstash and Kibana), Angular 8, Spring-Boot, REST-APIs.
+
+
+
+
+
+- 
