@@ -15,5 +15,3 @@ The main objective of this project is to set up a library management application
 
 
 
-
-- 
